@@ -11,6 +11,7 @@ import { Toaster } from "./components/ui/sonner";
 import SearchByCategory from "./search/[category]";
 import SearchByOptions from "./search";
 import ListingDetail from "./listing-details/[id]";
+import CarPricePredict from "./components/Carpricepredict";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
     path:'/listing-details/:id',
     element:<ListingDetail/>
   },
+  {
+    path: "/predict",
+    element: <CarPricePredict />,
+  },
+  
   // Optional: Add a fallback 404 page
   {
     path: "*",

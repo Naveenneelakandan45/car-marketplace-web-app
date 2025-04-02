@@ -5,6 +5,7 @@ import Category from './components/Category'
 import MostSearchedCar from './components/MostSearchedCar'
 import InfoSection from './components/InfoSection'
 import Footer from './components/Footer'
+import InfoSection2 from './components/Infosection2'
 
 
 
@@ -22,6 +23,7 @@ function Home() {
          {/* InfoSection */}
          <InfoSection/>
          {/* Footer */}
+         <InfoSection2/>
          <Footer/>
     </div>
   )

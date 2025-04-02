@@ -24,7 +24,9 @@ function Header() {
         <Link to="/" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">Home</Link>
         <Link to="/search" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">Search</Link>
         <Link to="/new" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">New</Link>
-        <Link to="/preowned" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">Preowned</Link>
+        <Link to="/predict" className=" font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">
+        Know Your Car’s Worth
+        </Link>
       </ul>
       {isSignedIn ? (
         <div className="flex items-center gap-5">
