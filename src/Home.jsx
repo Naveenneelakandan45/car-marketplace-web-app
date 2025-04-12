@@ -6,6 +6,9 @@ import MostSearchedCar from './components/MostSearchedCar'
 import InfoSection from './components/InfoSection'
 import Footer from './components/Footer'
 import InfoSection2 from './components/Infosection2'
+import CarNews from './components/CarNews'
+import Chat from './Chats/Chat'
+import WhyUs from './WhyUs/WhyUs'
 
 
 
@@ -18,12 +21,17 @@ function Home() {
          <Hero />
          {/* Category */}
          <Category/>
+         {/* Chat*/}
+         <Chat/>
          {/* most searched car*/}
          <MostSearchedCar/>
+         {/* WhyUs */}
+         <WhyUs/>
          {/* InfoSection */}
          <InfoSection/>
          {/* Footer */}
          <InfoSection2/>
+         <CarNews/>
          <Footer/>
     </div>
   )

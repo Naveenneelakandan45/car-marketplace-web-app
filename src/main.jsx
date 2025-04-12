@@ -12,6 +12,8 @@ import SearchByCategory from "./search/[category]";
 import SearchByOptions from "./search";
 import ListingDetail from "./listing-details/[id]";
 import CarPricePredict from "./components/Carpricepredict";
+import AboutUs from "./AboutUs/AboutUs";
+import CarViewer from "./pages/CarViewer";
 
 const router = createBrowserRouter([
   {
@@ -46,8 +48,16 @@ const router = createBrowserRouter([
     path: "/predict",
     element: <CarPricePredict />,
   },
-  
-  // Optional: Add a fallback 404 page
+  {
+    path:"/aboutUs",
+    element:<AboutUs/>
+
+  },
+  {
+    path:"/CarViewer",
+    element:<CarViewer/>
+
+  },
   {
     path: "*",
     element: <h1>404 - Page Not Found</h1>,

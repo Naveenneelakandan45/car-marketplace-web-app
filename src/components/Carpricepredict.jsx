@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const CarPricePredict = () => {
     const [formData, setFormData] = useState({
         year: 2020,
@@ -11,8 +10,7 @@ const CarPricePredict = () => {
         owner: 1
     });
 
-    const [predictedPrice, setPredictedPrice] = useState(null); // Store prediction
-
+    const [predictedPrice, setPredictedPrice] = useState(null); 
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -33,8 +31,8 @@ const CarPricePredict = () => {
             });
 
             const data = await response.json();
-            console.log("Predicted Price:", data.predicted_price); // Debugging
-            setPredictedPrice(data.predicted_price); // Store prediction in state
+            console.log("Predicted Price:", data.predicted_price); 
+            setPredictedPrice(data.predicted_price);
         } catch (error) {
             console.error("Error:", error);
         }

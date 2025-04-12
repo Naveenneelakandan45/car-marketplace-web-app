@@ -18,15 +18,19 @@ function Header() {
   return (
     <div className="flex justify-between items-center shadow-sm p-5">
       <Link to="/">
-        <img src="logo.svg" width={50} height={50} alt="Logo" />
+      <div className="flex justify-between items-center gap-4">  <img src="logo.svg" width={50} height={50} alt="Logo" /> <h2 className="font-bold text-2xl">Wheels<span className="text-blue-600">Deal</span></h2></div>
       </Link>
       <ul className="hidden md:flex gap-16">
         <Link to="/" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">Home</Link>
         <Link to="/search" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">Search</Link>
-        <Link to="/new" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">New</Link>
+        <Link to="/aboutUs" className="font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">About Us</Link>
         <Link to="/predict" className=" font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">
         Know Your Car’s Worth
         </Link>
+        <Link to="/CarViewer" className=" font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary">
+         View Car in 3D
+        </Link>
+
       </ul>
       {isSignedIn ? (
         <div className="flex items-center gap-5">

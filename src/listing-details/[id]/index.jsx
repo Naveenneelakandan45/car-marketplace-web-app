@@ -38,19 +38,13 @@ function ListingDetail() {
             <Header />
             <div className='p-10 md:px-20'>
                 <DetailHeader carDetail={carDetail} />
-
-                {/* Content Grid */}
                 <div className='grid grid-cols-1 md:grid-cols-3 w-full mt-10 gap-5'>
-
-                    {/* Left Side */}
                     <div className='md:col-span-2'>
                         <ImageGallery carDetail={carDetail} />
                         <Description carDetail={carDetail} />
                         <Features features={carDetail?.features} />
                         <FinancialCalculator carDetail={carDetail} />
                     </div>
-
-                    {/* Right Side */}
                     <div>
                         <Pricing carDetail={carDetail} />
                         <Specification carDetail={carDetail} />
@@ -58,12 +52,9 @@ function ListingDetail() {
                     </div>
 
                 </div>
-
-                {/* ✅ Full-width Most Searched Cars */}
                 <div className="w-full mt-10">
                     <MostSearchedCar />
                 </div>
-
                 <Footer />
             </div>
         </div>
