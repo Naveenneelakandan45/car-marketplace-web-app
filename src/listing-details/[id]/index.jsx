@@ -1,7 +1,7 @@
-import Header from '@/components/Header'
-import React, { useEffect, useState } from 'react'
-import DetailHeader from '../components/DetailHeader'
-import { useParams } from 'react-router-dom'
+import Header from './../../components/Header';
+import React, { useEffect, useState, useCallback } from 'react';
+import DetailHeader from '../components/DetailHeader';
+import { useParams } from 'react-router-dom';
 import { db } from './../../../configs';
 import { CarImages, CarListing } from './../../../configs/schema';
 import { eq } from 'drizzle-orm';
@@ -22,27 +22,25 @@ function ListingDetail() {
     const { id } = useParams();
     const [carDetail, setCarDetail] = useState();
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,  // Animation duration
-            once: false,   // Ensure animation only triggers once
-            offset:100   
-          });
-        GetCarDetail();
-    }, []);
-
-    const GetCarDetail = async () => {
+    const GetCarDetail = useCallback(async () => {
         const result = await db.select().from(CarListing)
             .innerJoin(CarImages, eq(CarListing.id, CarImages.carListingId))
             .where(eq(CarListing.id, id));
 
         const resp = FormatResult(result);
         setCarDetail(resp[0]);
-    };
+    }, [id]);
+
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: false, offset: 100 });
+
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+        GetCarDetail();
+    }, [id, GetCarDetail]);
 
     return (
-        <div  data-aos="fade-up">
-            <Header/>
+        <div data-aos="fade-up">
+            <Header />
             <div className='p-10 md:px-20'>
                 <DetailHeader carDetail={carDetail} />
                 <div className='grid grid-cols-1 md:grid-cols-3 w-full mt-10 gap-5'>
@@ -57,7 +55,6 @@ function ListingDetail() {
                         <Specification carDetail={carDetail} />
                         <OwnersDetail carDetail={carDetail} />
                     </div>
-
                 </div>
                 <div className="w-full mt-10">
                     <MostSearchedCar />

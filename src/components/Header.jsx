@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import logo from "./../../public/logo.svg";
 
 function Header() {
   const { isSignedIn } = useUser();
@@ -30,7 +31,7 @@ function Header() {
     >
       <Link to="/">
         <div className="flex justify-between items-center gap-4">
-          <img src="logo.svg" width={50} height={50} alt="Logo" />
+          <img src={logo} width={50} height={50} alt="Logo" />
           <h2 className="font-bold text-2xl">
             Wheels<span className="text-blue-600">Deal</span>
           </h2>
