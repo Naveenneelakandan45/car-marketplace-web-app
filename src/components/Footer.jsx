@@ -1,8 +1,20 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react";
 
 const Footer = () => {
+  
+  useEffect(() => {
+    // Initialize AOS with desired settings
+    AOS.init({
+      duration: 1000,  // Animation duration
+      once: false,   // Ensure animation only triggers once
+      offset:100   
+    });
+  }, []);
   return (
-    <footer className="bg-slate-200 text-black py-12">
+    <footer   data-aos="fade-up" className="bg-slate-200 text-black py-12">
       <div className="w-full mx-auto px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-4 gap-8">
         
        

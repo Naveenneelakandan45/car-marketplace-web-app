@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 import CarNewsCard from "./CarNewsCard";
 const img1 = new URL("../assets/img/news1.jpg", import.meta.url).href;
 const img2 = new URL("../assets/img/news2.jpg", import.meta.url).href;
@@ -12,7 +14,15 @@ const img6 = new URL("../assets/img/news6.jpg", import.meta.url).href;
 
 
 const CarNews = () => {
-    console.log("CarNews component is rendering...");
+    useEffect(() => {
+        // Initialize AOS with desired settings
+        AOS.init({
+          duration: 1000,  // Animation duration
+          once: false,   // Ensure animation only triggers once
+          offset:100   
+        });
+      }, []);
+    
 
     const newsData = [
         { id: 0, img: img1, desc: "Toyota touts internal combustion engine potential, even in EV age" },
@@ -51,7 +61,7 @@ const CarNews = () => {
     };
 
     return (
-        <div className="w-full mt-14">
+        <div   data-aos="fade-up" className="w-full mt-14">
             <h1 className="font-bold text-4xl text-center">
                 Cars <span className="text-primary">News & Advices</span>
             </h1>

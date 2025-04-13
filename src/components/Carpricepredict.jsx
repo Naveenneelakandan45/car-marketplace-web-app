@@ -1,5 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 const CarPricePredict = () => {
+  useEffect(() => {
+    // Initialize AOS with desired settings
+    AOS.init({
+      duration: 1000,  // Animation duration
+      once: false,   // Ensure animation only triggers once
+      offset:100   
+    });
+
+  }, []);
+     
     const [formData, setFormData] = useState({
         year: 2020,
         present_price: 500000,
@@ -39,7 +51,7 @@ const CarPricePredict = () => {
     };
 
     return (
-      <div className="relative min-h-screen flex items-center justify-center">
+      <div  data-aos="fade-up" className="relative min-h-screen flex items-center justify-center">
         {/* Background Video */}
         <video 
           autoPlay 

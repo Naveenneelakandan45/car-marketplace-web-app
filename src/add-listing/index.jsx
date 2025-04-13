@@ -18,6 +18,8 @@ import { Toaster } from 'react-hot-toast';
 import { eq } from 'drizzle-orm';
 import { FormatResult } from '@/components/Shared/Service';
 import TextAreaField from './components/TextAreaField';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 function AddListing() {
   const [formData, setFormData] = useState({ images: [] });
@@ -31,6 +33,11 @@ function AddListing() {
   const recordId = searchParams.get('id');
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Animation duration
+      once: false,   // Ensure animation only triggers once
+      offset:100   
+    });
     if (mode === 'edit' && recordId) {
       GetListingDetail();
     }
@@ -120,7 +127,7 @@ function AddListing() {
   };
 
   return (
-    <div>
+    <div  data-aos="fade-up" >
       <Header />
       <Toaster />
       <div className="px-10 md:px-20 my-10">

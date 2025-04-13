@@ -8,6 +8,8 @@ import { useSearchParams } from 'react-router-dom'
 import Header from '@/components/Header';
 import Search from '@/components/Search';
 import CarItem from '@/components/CarItem';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function SearchByOptions() {
     const [searchParam] = useSearchParams();
@@ -19,6 +21,11 @@ function SearchByOptions() {
 
 
   useEffect(()=>{
+    AOS.init({
+      duration: 1000,  // Animation duration
+      once: false,   // Ensure animation only triggers once
+      offset:100   
+    });
     GetCarList();
   },[])
   const GetCarList=async()=>{
@@ -32,7 +39,8 @@ function SearchByOptions() {
     setCarList(resp);
   }
   return (
-       <div>
+       <div 
+       data-aos="fade-up">
          <Header/>
          <div className='p-16 bg-black flex justify-center'>
            <Search/>

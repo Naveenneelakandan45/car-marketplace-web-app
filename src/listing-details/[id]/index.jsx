@@ -15,12 +15,19 @@ import OwnersDetail from '../components/ownersDetail';
 import Footer from '@/components/Footer';
 import FinancialCalculator from '../components/FinancialCalculator';
 import MostSearchedCar from '@/components/MostSearchedCar';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 function ListingDetail() {
     const { id } = useParams();
     const [carDetail, setCarDetail] = useState();
 
     useEffect(() => {
+        AOS.init({
+            duration: 1000,  // Animation duration
+            once: false,   // Ensure animation only triggers once
+            offset:100   
+          });
         GetCarDetail();
     }, []);
 
@@ -34,8 +41,8 @@ function ListingDetail() {
     };
 
     return (
-        <div>
-            <Header />
+        <div  data-aos="fade-up">
+            <Header/>
             <div className='p-10 md:px-20'>
                 <DetailHeader carDetail={carDetail} />
                 <div className='grid grid-cols-1 md:grid-cols-3 w-full mt-10 gap-5'>

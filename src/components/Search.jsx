@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Select,
     SelectContent,
@@ -10,14 +10,20 @@ import { Separator } from './ui/separator'
 import { CiSearch } from "react-icons/ci"
 import Data from './Shared/Data'
 import { Link } from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
   
 function Search() {
+   useEffect(() => {
+      AOS.init({ duration: 1000 });
+    }, []);
+
   const[cars,setCars]=useState();
   const[make,setMake]=useState();
   const[price,setPrice]=useState();
 
   return (
-    <div className='p-2 md:p-5 bg-white rounded-md 
+    <div data-aos="fade-down" data-aos-delay="400" className='p-2 md:p-5 bg-white rounded-md 
     md:rounded-full flex-col md:flex md:flex-row gap-10 px-5 items-center
     w-[60%] '>
       <Select onValueChange={(value)=>setCars(value)}>
